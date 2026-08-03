@@ -1,5 +1,7 @@
 # Py-Resolution
 
+A simple datatype for image resolutions, scaling, aspect ratios, orientations etc. With support for your favourite libraries like Pillow, NumPy, OpenCV, Scikit-image etc.
+
 ## Usage
 
 ### Basic

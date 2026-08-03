@@ -1,0 +1,30 @@
+[project]
+name = "py-resolution" # pip install name
+dynamic = ["version"]
+description = "A simple datatype for image resolutions, scaling, aspect ratios, orientations etc. With support for your favourite libraries like Pillow, NumPy, OpenCV, Scikit-image etc."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Mario Petkov", email = "mariopersonalweb@gmail.com" }
+]
+keywords = ["resolution", "video", "image", "aspect-ratio", "scaling", "dimensions"]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0",
+    "Pillow>=12",
+    "numpy",
+    "opencv-python",
+    "scikit-image"
+]
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "node-and-date"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

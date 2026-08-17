@@ -2,9 +2,17 @@
 
 A simple datatype for image resolutions, scaling, aspect ratios, orientations etc. With support for your favourite libraries like Pillow, NumPy, OpenCV, Scikit-image etc.
 
-## Usage
+### Basics
+- [Usage](#usage)
 
-### Basic
+### Features
+- [Alternative Construction](#alternative-construction)
+- [Orientations and flipping](#orientations-and-flipping)
+- [Scaling Logic](#scaling-logic)
+- [Spatial & Volumetric Comparisons](#spatial--volumetric-comparisons)
+- [Framework & Interop Helpers](#framework--interop-helpers)
+
+## Usage
 
 ```python
 from resolution import Resolution as res
@@ -22,7 +30,8 @@ print(r.orientation)   # Orientation.LANDSCAPE
 w, h = res
 ```
 
-### Alternative Construction
+
+## Alternative Construction
 
 ```python
 from resolution import Resolution as res
@@ -44,7 +53,7 @@ r_arr = res.from_array(array)   # Resolution(1920, 1080)
 ```
 
 
-### Orientations and flipping
+## Orientations and flipping
 
 ```python
 from resolution import Resolution as res, Orientation as orient
@@ -64,7 +73,7 @@ print(r.orientation == orient.LANDSCAPE)  # True
 ```
 
 
-### Scaling Logic
+## Scaling Logic
 
 ```python
 from resolution import Resolution as res
@@ -97,7 +106,7 @@ print(scale_cover)                      # 0.925925...
 ```
 
 
-### Spatial & Volumetric Comparisons
+## Spatial & Volumetric Comparisons
 
 ```python
 from resolution import Resolution as res
@@ -121,7 +130,7 @@ r2 = res(720, 1280)
 print(r1 == r2)  # False
 ```
 
-### Framework & Interop Helpers
+## Framework & Interop Helpers
 
 ```python
 from resolution import Resolution as res
@@ -132,7 +141,7 @@ r = res(1920, 1080)
 shape_2d = r.to_shape()     # (1080, 1920)
 shape_3d = r.to_shape(3)    # (1080, 1920, 3)
 
-# Pattern matching (Python 3.10+)
+# Pattern matching
 match r:
     case res(1920, 1080):
         print("Full HD detected")

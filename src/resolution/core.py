@@ -64,6 +64,19 @@ class Resolution(tuple):
 
         Accepts a WIDTHxHEIGHT pattern, for instance "100x50" or a
         standard 16:9 nomenclature like "1080p", "4K", "2k" etc.
+
+        Full list:
+
+        "144p" (256, 144),
+        "240p" (426, 240),
+        "360p" (640, 360),
+        "480p" (854, 480),
+        "720p" (1280, 720),
+        "1080p" (1920, 1080),
+        "1440p" (2560, 1440),
+        "2k" (2560, 1440),
+        "4k" (3840, 2160),
+        "8k" (7680, 4320)
         """
 
         if not isinstance(string, str):
@@ -232,7 +245,7 @@ class Resolution(tuple):
     def get_fit_scale(self, other_res: Self) -> float:
         """
         Return the scale factor needed to fit entirely inside `other_res`
-        with the smallest amount of overflow, preserving aspect ratio.
+        with the smallest amount of unused space, preserving aspect ratio.
         """
         return min(other_res.width / self.width, other_res.height / self.height)
 

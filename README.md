@@ -4,6 +4,7 @@ A simple datatype for image resolutions, scaling, aspect ratios, orientations et
 
 ### Basics
 - [Usage](#usage)
+- [Building](#building)
 
 ### Features
 - [Alternative Construction](#alternative-construction)
@@ -28,6 +29,16 @@ print(r.orientation)   # Orientation.LANDSCAPE
 
 # Unpack like a normal tuple
 w, h = res
+```
+
+## Building
+
+```
+python -m pip install build
+```
+
+```
+python -m build
 ```
 
 
@@ -80,11 +91,11 @@ from resolution import Resolution as res
 
 r = res(1920, 1080)
 
-# Scale by a multiplier (supports rounding)
+# Scale by a multiplier (supports round-half-up rounding)
 scaled = r.scaled_by(0.5)
-rounded_scaled = r.scaled_by(0.33, round_to=16)  # Rounds dimensions to nearest multiple of 16
+rounded_scaled = r.scaled_by(0.5, round_to=16)  # Rounds dimensions to nearest multiples of 16
 print(scaled)                           # 960x540
-print(rounded_scaled)                   # 640x352
+print(rounded_scaled)                   # 960x544
 
 # Operator shorthand
 double_res = r * 2                      # 3840x2160
